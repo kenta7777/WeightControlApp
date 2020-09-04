@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/WeightRecordFragment"
-        android:name="com.example.weightcontrolapp.WeightRecordFragment"
+        android:name="com.example.weightcontrolapp.ui.weightrecord.WeightRecordFragment"
         android:label="@string/weight_record_fragment_label"
         tools:layout="@layout/weight_record_fragment">
 
@@ -18,7 +18,7 @@
 
     <fragment
         android:id="@+id/CheckWeightRecordFragment"
-        android:name="com.example.weightcontrolapp.CheckWeightRecordFragment"
+        android:name="com.example.weightcontrolapp.ui.weightrecord.CheckWeightRecordFragment"
         android:label="@string/check_weight_record_fragment_label"
         tools:layout="@layout/check_weight_record_fragment">
 
