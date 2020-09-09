@@ -1,39 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.weightrecord.WeightRecordFragment">
+<layout>
+    <data>
 
-    <TextView
-        android:id="@+id/textview_record_your_weight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/record_your_weight"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@id/weight_record_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <variable
+            name="weightRecordViewModel"
+            type="com.example.weightcontrolapp.ui.weightrecord.WeightRecordViewModel" />
+    </data>
 
-    <EditText
-        android:id="@+id/weight_text_input"
-        android:layout_height="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@id/weight_record_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_record_your_weight" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/weight_record_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/weight_record"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_record_your_weight" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/textview_record_your_weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/record_your_weight"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@id/weight_record_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/weight_text_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="200"
+            android:hint="@string/record_your_weight_in_edit_text"
+            android:inputType="number"
+            app:layout_constraintBottom_toTopOf="@id/weight_record_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_record_your_weight" />
+
+        <Button
+            android:id="@+id/weight_record_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/weight_record"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_record_your_weight" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
