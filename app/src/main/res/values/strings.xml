@@ -13,7 +13,7 @@
     <string name="back_to_weight_record_screen">Back to weight record screen</string>
 
     <!-- Strings for weight record fragment -->
-    <string name="record_your_weight">Record today\'s your weight!</string>
+    <string name="record_your_weight">Record your today\'s weight!</string>
     <string name="record_your_weight_in_edit_text">Record your weight</string>
     <string name="weight_record">Record</string>
     <string name="record_weight_message">Your today\'s weight is kg!</string>

@@ -14,11 +14,10 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.weightcontrolapp.R
 import com.example.weightcontrolapp.R.layout.weight_record_fragment
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.weight_record_fragment.*
+import timber.log.Timber
 
-/**
- * A simple [Fragment] subclass as the default destination in the navigation.
- */
 class WeightRecordFragment : Fragment() {
 
     private val viewModel: WeightRecordViewModel by activityViewModels()
@@ -34,10 +33,7 @@ class WeightRecordFragment : Fragment() {
 
         override fun afterTextChanged(s: Editable?) {
             val weightRecordString = s.toString()
-
-            if (weightRecordString.isEmpty()) {
-                //TODO Error Handling
-            }
+            setWeight(weightRecordString)
         }
     }
 
@@ -57,22 +53,28 @@ class WeightRecordFragment : Fragment() {
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
 
-        val editText = EditText(requireContext())
-
         return inflater.inflate(weight_record_fragment, container, false)
-
-
-        //val weightEditText = v?.findViewById<EditText>(R.id.weight_text_input)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<Button>(R.id.weight_record_button).setOnClickListener {
-            findNavController().navigate(R.id.action_WeightRecordFragment_to_CheckWeightRecordFragment)
+        weightRecordInput = view.findViewById(R.id.weight_text_input)
+
+        weightRecordInput.addTextChangedListener(textWatcher)
+
+        view.findViewById<Button>(R.id.weight_record_button).setOnClickListener {view ->
+            if (viewModel.userWeightText.value.isNullOrBlank()) {
+                Snackbar.make(view, "Record your weight!!", Snackbar.LENGTH_LONG).setAction("Action", null).show()
+            } else {
+                findNavController().navigate(R.id.action_WeightRecordFragment_to_CheckWeightRecordFragment)
+            }
         }
     }
 
+    fun setWeight(weightString: String) {
+        viewModel.userWeightText.value = weightString
+    }
+
     //TODO: Show the value in CheckWeightRecordFragment
-    //TODO: Deal with abnormal value(e.g blank space) in weight record EditText
 }
