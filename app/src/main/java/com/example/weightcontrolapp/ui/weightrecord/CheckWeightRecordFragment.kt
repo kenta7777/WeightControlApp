@@ -6,27 +6,39 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.weightcontrolapp.R
 
-/**
- * A simple [Fragment] subclass as the second destination in the navigation.
- */
 class CheckWeightRecordFragment : Fragment() {
+
+    private val viewModel: WeightRecordViewModel by activityViewModels()
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.check_weight_record_fragment, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        view.findViewById<Button>(R.id.button_second).setOnClickListener {
+        val weight = viewModel.userWeightText.value.toString()
+        val recordWeightMessage: String = getString(R.string.record_weight_message, weight)
+
+        val recordedWeightTextView: TextView = view.findViewById(R.id.recordedWeightTextView)
+        recordedWeightTextView.text = recordWeightMessage
+
+        view.findViewById<Button>(R.id.backToWeightRecordScreenButton).setOnClickListener {
+            clearUserInput()
             findNavController().navigate(R.id.action_CheckWeightRecordFragment_to_WeightRecordFragment)
         }
+    }
+
+    fun clearUserInput() {
+        viewModel.userWeightText.value = null
     }
 }

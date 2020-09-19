@@ -12,11 +12,11 @@
     <string name="check_weight_record_fragment_label">Check Weight Record Fragment</string>
     <string name="back_to_weight_record_screen">Back to weight record screen</string>
 
-    <!-- Strings for weight record fragment -->
+    <!-- Strings for WeightRecordFragment -->
     <string name="record_your_weight">Record your today\'s weight!</string>
     <string name="record_your_weight_in_edit_text">Record your weight</string>
     <string name="weight_record">Record</string>
-    <string name="record_weight_message">Your today\'s weight is kg!</string>
 
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- String for CheckWeightRecordFragment -->
+    <string name="record_weight_message">Your today\'s weight is %1$s kg!</string>
 </resources>
