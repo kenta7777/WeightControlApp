@@ -38,7 +38,7 @@ class CheckWeightRecordFragment : Fragment() {
         }
     }
 
-    fun clearUserInput() {
+    private fun clearUserInput() {
         viewModel.userWeightText.value = null
     }
 }

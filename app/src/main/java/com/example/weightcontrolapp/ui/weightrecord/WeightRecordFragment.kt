@@ -9,19 +9,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.weightcontrolapp.R
 import com.example.weightcontrolapp.R.layout.weight_record_fragment
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.weight_record_fragment.*
-import timber.log.Timber
 
 class WeightRecordFragment : Fragment() {
 
     private val viewModel: WeightRecordViewModel by activityViewModels()
-
     private lateinit var weightRecordInput: EditText
 
     private val textWatcher = object : TextWatcher {
@@ -37,16 +33,6 @@ class WeightRecordFragment : Fragment() {
         }
     }
 
-    private var root: View? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        //viewModel.userWeightText.value = weight_text_input.text.toString()
-//        val binding = DataBindingUtil.setContentView(this, R.layout.weight_record_fragment)
-
-    }
-
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
@@ -60,12 +46,11 @@ class WeightRecordFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         weightRecordInput = view.findViewById(R.id.weight_text_input)
-
         weightRecordInput.addTextChangedListener(textWatcher)
 
-        view.findViewById<Button>(R.id.weight_record_button).setOnClickListener {view ->
+        view.findViewById<Button>(R.id.weight_record_button).setOnClickListener {v ->
             if (viewModel.userWeightText.value.isNullOrBlank()) {
-                Snackbar.make(view, "Record your weight!!", Snackbar.LENGTH_LONG).setAction("Action", null).show()
+                Snackbar.make(v, "Record your weight!!", Snackbar.LENGTH_LONG).setAction("Action", null).show()
             } else {
                 findNavController().navigate(R.id.action_WeightRecordFragment_to_CheckWeightRecordFragment)
             }
@@ -75,6 +60,4 @@ class WeightRecordFragment : Fragment() {
     fun setWeight(weightString: String) {
         viewModel.userWeightText.value = weightString
     }
-
-    //TODO: Show the value in CheckWeightRecordFragment
 }
