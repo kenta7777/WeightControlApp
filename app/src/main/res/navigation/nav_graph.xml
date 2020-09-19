@@ -3,26 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/WeightRecordFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.example.weightcontrolapp.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        android:id="@+id/WeightRecordFragment"
+        android:name="com.example.weightcontrolapp.ui.weightrecord.WeightRecordFragment"
+        android:label="@string/weight_record_fragment_label"
+        tools:layout="@layout/weight_record_fragment">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_WeightRecordFragment_to_CheckWeightRecordFragment"
+            app:destination="@id/CheckWeightRecordFragment" />
     </fragment>
+
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.weightcontrolapp.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        android:id="@+id/CheckWeightRecordFragment"
+        android:name="com.example.weightcontrolapp.ui.weightrecord.CheckWeightRecordFragment"
+        android:label="@string/check_weight_record_fragment_label"
+        tools:layout="@layout/check_weight_record_fragment">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_CheckWeightRecordFragment_to_WeightRecordFragment"
+            app:destination="@id/WeightRecordFragment" />
     </fragment>
 </navigation>

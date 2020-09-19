@@ -1,16 +1,25 @@
 <resources>
     <string name="app_name">WeightControlApp</string>
+
+    <!-- common_string -->
+    <string name="common_weight_unit">kg</string>
+
     <!-- content for menu -->
     <string name="action_top">top</string>
     <string name="action_my_page">mypage</string>
-    <string name="action_register">register</string>
+    <string name="action_record">record</string>
     <string name="action_history">history</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="weight_record_fragment_label">Weight Record Fragment</string>
+    <string name="check_weight_record_fragment_label">Check Weight Record Fragment</string>
+    <string name="back_to_weight_record_screen">Back to weight record screen</string>
+
+    <!-- Strings for WeightRecordFragment -->
+    <string name="record_your_weight">Let\'s record \n your today\'s weight!</string>
+    <string name="record_your_weight_in_edit_text">Record your weight</string>
+    <string name="weight_record">Record</string>
+
+    <!-- String for CheckWeightRecordFragment -->
+    <string name="record_weight_message">Your today\'s weight is \n %1$s kg!</string>
 </resources>
