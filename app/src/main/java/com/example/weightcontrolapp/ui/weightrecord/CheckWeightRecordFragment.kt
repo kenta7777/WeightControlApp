@@ -16,8 +16,8 @@ class CheckWeightRecordFragment : Fragment() {
     private val viewModel: WeightRecordViewModel by activityViewModels()
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
 
         return inflater.inflate(R.layout.check_weight_record_fragment, container, false)

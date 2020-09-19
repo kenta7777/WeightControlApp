@@ -34,8 +34,8 @@ class WeightRecordFragment : Fragment() {
     }
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
 
@@ -48,9 +48,10 @@ class WeightRecordFragment : Fragment() {
         weightRecordInput = view.findViewById(R.id.weight_text_input)
         weightRecordInput.addTextChangedListener(textWatcher)
 
-        view.findViewById<Button>(R.id.weight_record_button).setOnClickListener {v ->
+        view.findViewById<Button>(R.id.weight_record_button).setOnClickListener { v ->
             if (viewModel.userWeightText.value.isNullOrBlank()) {
-                Snackbar.make(v, "Record your weight!!", Snackbar.LENGTH_LONG).setAction("Action", null).show()
+                Snackbar.make(v, "Record your weight!!", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show()
             } else {
                 findNavController().navigate(R.id.action_WeightRecordFragment_to_CheckWeightRecordFragment)
             }
