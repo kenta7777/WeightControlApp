@@ -4,13 +4,25 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.room.Room
+import com.example.weightcontrolapp.data.local.db.AppDatabase
 
 class MainActivity : AppCompatActivity() {
+    companion object {
+        lateinit var db: AppDatabase
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
+
+        db = Room.databaseBuilder(
+            applicationContext,
+            AppDatabase::class.java,
+            "app_database"
+        ).build()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
