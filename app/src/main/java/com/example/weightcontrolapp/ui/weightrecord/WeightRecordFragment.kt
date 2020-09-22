@@ -13,7 +13,9 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.weightcontrolapp.R
 import com.example.weightcontrolapp.R.layout.weight_record_fragment
+import com.example.weightcontrolapp.data.model.db.WeightData
 import com.google.android.material.snackbar.Snackbar
+import java.util.*
 
 class WeightRecordFragment : Fragment() {
 
@@ -53,6 +55,10 @@ class WeightRecordFragment : Fragment() {
                 Snackbar.make(v, "Record your weight!!", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
             } else {
+                // insert weight data to db
+                val weightData = createWeightData()
+                viewModel.insertWeightData(weightData)
+
                 findNavController().navigate(R.id.action_WeightRecordFragment_to_CheckWeightRecordFragment)
             }
         }
@@ -60,5 +66,16 @@ class WeightRecordFragment : Fragment() {
 
     fun setWeight(weightString: String) {
         viewModel.userWeightText.value = weightString
+    }
+
+    private fun createWeightData(): WeightData {
+        val date = Date()
+        val weight = viewModel.userWeightText.value
+
+        return if (weight == null) {
+            WeightData(date, "0")
+        } else {
+            WeightData(date, weight)
+        }
     }
 }

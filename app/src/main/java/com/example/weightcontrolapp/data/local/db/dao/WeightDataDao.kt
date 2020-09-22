@@ -14,7 +14,7 @@ interface WeightDataDao {
 
     // insert
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertWeightData(weightData: WeightData)
+    suspend fun insertWeightData(weightData: WeightData)
 
     //TODO: Delete
 }

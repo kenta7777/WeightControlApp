@@ -4,20 +4,35 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.weightcontrolapp.MainActivity
 import com.example.weightcontrolapp.data.model.db.WeightData
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import timber.log.Timber
 
 class WeightRecordViewModel : ViewModel() {
     var userWeightText = MutableLiveData<String>()
-    // Instantiate WeightDataDao
+
     private val dao = MainActivity.db.weightDataDao()
 
-    // This method is called in WeightRecordFragment
-    fun loadAllWeightDataList() {
-        dao.loadAllWeightData()
+    //TODO: implement correctly when implement history screen
+    fun loadAllWeightDataList(): List<WeightData> {
+        var weightDataList = listOf<WeightData>()
+        CoroutineScope(Dispatchers.Main).launch {
+            withContext(Dispatchers.Default) {
+                weightDataList = dao.loadAllWeightData()
+            }
+        }
+        return weightDataList
     }
 
-    // This method is called in WeightRecordFragment
-    fun loadWeightData(weightData: WeightData) {
-        dao.insertWeightData(weightData)
+    fun insertWeightData(weightData: WeightData) {
+        CoroutineScope(Dispatchers.Main).launch {
+            withContext(Dispatchers.Default) {
+                Timber.d("insert weightData: $weightData")
+                dao.insertWeightData(weightData)
+            }
+        }
     }
 
 }
