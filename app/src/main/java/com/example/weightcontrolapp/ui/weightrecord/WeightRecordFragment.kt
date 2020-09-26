@@ -69,13 +69,11 @@ class WeightRecordFragment : Fragment() {
     }
 
     private fun createWeightData(): WeightData {
+        // Actually, this id is generated automatically
+        val id = 0
         val date = Date()
-        val weight = viewModel.userWeightText.value
+        val weight = viewModel.userWeightText.value ?: "0"
 
-        return if (weight == null) {
-            WeightData(date, "0")
-        } else {
-            WeightData(date, weight)
-        }
+        return WeightData(id, date, weight)
     }
 }
