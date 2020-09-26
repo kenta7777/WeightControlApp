@@ -12,6 +12,10 @@ interface WeightDataDao {
     @Query("SELECT * FROM weight_data")
     fun loadAllWeightData(): List<WeightData>
 
+    // find a WeightData by id
+    @Query("SELECT * FROM weight_data WHERE id = :id")
+    fun findWeightDataById(id: Int): WeightData
+
     // insert
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertWeightData(weightData: WeightData)
