@@ -21,6 +21,13 @@ class InsertWeightDataTest {
     private lateinit var db: AppDatabase
     private lateinit var dao: WeightDataDao
 
+    companion object{
+        private const val dummyId = 0
+        private val dummyDate = Date()
+        private const val dummyWeight = "0"
+        val dummyWeightData = WeightData(dummyId, dummyDate, dummyWeight)
+    }
+
     @Before
     fun createDb() {
         val context = ApplicationProvider.getApplicationContext<Context>()
@@ -39,18 +46,26 @@ class InsertWeightDataTest {
     @Test
     @Throws(Exception::class)
     fun testInsertWeightData() = runBlocking {
-        val dummyId = 0
-        val dummyDate = Date()
-        val dummyWeight = "0"
-        val weightData = WeightData(dummyId, dummyDate, dummyWeight)
-
         // insert dummy
-        dao.insertWeightData(weightData)
+        dao.insertWeightData(dummyWeightData)
 
-        // findbyWeightId
+        // findWeightDataById
         // id generated automatically was 1, so specifies parameter of findWeightDataById as 1
         val expectedWeightData = dao.findWeightDataById(1)
 
         assertEquals(expectedWeightData.weight, dummyWeight)
+    }
+
+    @Test
+    @Throws(Exception::class)
+    fun testFindWeightDataByIdFail() = runBlocking {
+        // insert dummy
+        dao.insertWeightData(dummyWeightData)
+
+        // findWeightDataById
+        // specify an id that doesn't exist
+        val expectedWeightData = dao.findWeightDataById(1000)
+
+        assertEquals(expectedWeightData, null)
     }
 }
