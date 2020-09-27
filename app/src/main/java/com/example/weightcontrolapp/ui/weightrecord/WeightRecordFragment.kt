@@ -55,7 +55,6 @@ class WeightRecordFragment : Fragment() {
                 Snackbar.make(v, "Record your weight!!", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
             } else {
-                // insert weight data to db
                 val weightData = createWeightData()
                 viewModel.insertWeightData(weightData)
 

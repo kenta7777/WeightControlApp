@@ -46,7 +46,6 @@ class InsertWeightDataTest {
     @Test
     @Throws(Exception::class)
     fun testInsertWeightData() = runBlocking {
-        // insert dummy
         dao.insertWeightData(dummyWeightData)
 
         // findWeightDataById
@@ -59,7 +58,6 @@ class InsertWeightDataTest {
     @Test
     @Throws(Exception::class)
     fun testFindWeightDataByIdFail() = runBlocking {
-        // insert dummy
         dao.insertWeightData(dummyWeightData)
 
         // findWeightDataById

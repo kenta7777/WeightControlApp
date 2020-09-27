@@ -8,7 +8,7 @@ import com.example.weightcontrolapp.data.model.db.WeightData
 
 @Dao
 interface WeightDataDao {
-    // load all weight data in database
+    // load all WeightData in AppDatabase
     @Query("SELECT * FROM weight_data")
     fun loadAllWeightData(): List<WeightData>
 
