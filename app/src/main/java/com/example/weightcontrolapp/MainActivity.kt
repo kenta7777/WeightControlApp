@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
             applicationContext,
             AppDatabase::class.java,
             "app_database"
-        ).build()
+        ).fallbackToDestructiveMigration().build()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
