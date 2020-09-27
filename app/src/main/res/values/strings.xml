@@ -16,10 +16,10 @@
     <string name="back_to_weight_record_screen">Back to weight record screen</string>
 
     <!-- Strings for WeightRecordFragment -->
-    <string name="record_your_weight">Let\'s record \n your today\'s weight!</string>
+    <string name="record_your_weight">Let\'s record \n today\'s your weight!</string>
     <string name="record_your_weight_in_edit_text">Record your weight</string>
     <string name="weight_record">Record</string>
 
     <!-- String for CheckWeightRecordFragment -->
-    <string name="record_weight_message">Your today\'s weight is \n %1$s kg!</string>
+    <string name="record_weight_message">Today\'s your weight is \n %1$s kg!</string>
 </resources>
