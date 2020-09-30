@@ -22,4 +22,7 @@
 
     <!-- String for CheckWeightRecordFragment -->
     <string name="record_weight_message">Today\'s your weight is \n %1$s kg!</string>
+
+    <!-- HistoryFragment -->
+    <string name="history_fragment_title">History</string>
 </resources>
