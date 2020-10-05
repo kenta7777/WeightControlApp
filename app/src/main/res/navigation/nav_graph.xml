@@ -14,6 +14,10 @@
         <action
             android:id="@+id/action_WeightRecordFragment_to_CheckWeightRecordFragment"
             app:destination="@id/CheckWeightRecordFragment" />
+        <action
+            android:id="@+id/action_WeightRecordFragment_to_HistoryFragment"
+            app:destination="@id/HistoryFragment"
+            />
     </fragment>
 
     <fragment
@@ -25,5 +29,12 @@
         <action
             android:id="@+id/action_CheckWeightRecordFragment_to_WeightRecordFragment"
             app:destination="@id/WeightRecordFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/HistoryFragment"
+        android:name="com.example.weightcontrolapp.ui.history.HistoryFragment"
+        android:label="@string/history_fragment_label">
+
     </fragment>
 </navigation>
