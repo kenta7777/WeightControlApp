@@ -9,10 +9,6 @@ import com.example.weightcontrolapp.R
 
 class HistoryFragment : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -23,11 +19,4 @@ class HistoryFragment : Fragment() {
         return inflater.inflate(R.layout.history_fragment, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-    }
-
-    override fun onPause() {
-        super.onPause()
-    }
 }
