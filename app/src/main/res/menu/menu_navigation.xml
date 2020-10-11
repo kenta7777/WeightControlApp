@@ -2,16 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/weight_record_fragment"
+        android:id="@+id/menu_nav_weight_record_fragment"
         android:title="@string/action_top" />
     <item
-        android:id="@+id/action_my_page"
+        android:id="@+id/menu_nav_my_page_fragment"
         android:title="@string/action_my_page" />
     <item
-        android:id="@+id/action_register"
+        android:id="@+id/menu_nav_record_fragment"
         android:title="@string/action_record" />
     <item
-        android:id="@+id/action_history"
+        android:id="@+id/menu_nav_history_fragment"
         android:title="@string/action_history" />
 
 </menu>
