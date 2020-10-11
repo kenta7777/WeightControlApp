@@ -60,13 +60,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         var fragment: Fragment? = null
 
         when (item.itemId) {
-            R.id.menu_nav_top_fragment, R.id.menu_nav_my_page_fragment -> {
+            R.id.menu_nav_top, R.id.menu_nav_my_page -> {
                 return true
             }
-            R.id.menu_nav_weight_record_fragment -> {
+            R.id.menu_nav_weight_record -> {
                 fragment = WeightRecordFragment()
             }
-            R.id.menu_nav_history_fragment -> {
+            R.id.menu_nav_history -> {
                 fragment = HistoryFragment()
             }
         }
@@ -88,10 +88,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.menu_nav_top_fragment -> true
-            R.id.menu_nav_my_page_fragment -> true
-            R.id.menu_nav_weight_record_fragment -> true
-            R.id.menu_nav_history_fragment -> true
+            R.id.menu_nav_top -> true
+            R.id.menu_nav_my_page -> true
+            R.id.menu_nav_weight_record -> true
+            R.id.menu_nav_history -> true
             else -> super.onOptionsItemSelected(item)
         }
     }

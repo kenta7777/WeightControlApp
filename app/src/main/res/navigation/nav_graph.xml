@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/menu_nav_weight_record_fragment">
+    app:startDestination="@id/menu_nav_weight_record">
 
     <fragment
-        android:id="@+id/menu_nav_weight_record_fragment"
+        android:id="@+id/menu_nav_weight_record"
         android:name="com.example.weightcontrolapp.ui.weightrecord.WeightRecordFragment"
         android:label="@string/weight_record_fragment_label"
         tools:layout="@layout/weight_record_fragment">
@@ -16,7 +16,7 @@
             app:destination="@id/CheckWeightRecordFragment" />
         <action
             android:id="@+id/action_WeightRecordFragment_to_HistoryFragment"
-            app:destination="@id/menu_nav_history_fragment"
+            app:destination="@id/menu_nav_history"
             />
     </fragment>
 
@@ -28,11 +28,11 @@
 
         <action
             android:id="@+id/action_CheckWeightRecordFragment_to_WeightRecordFragment"
-            app:destination="@id/menu_nav_weight_record_fragment" />
+            app:destination="@id/menu_nav_weight_record" />
     </fragment>
 
     <fragment
-        android:id="@+id/menu_nav_history_fragment"
+        android:id="@+id/menu_nav_history"
         android:name="com.example.weightcontrolapp.ui.history.HistoryFragment"
         android:label="@string/history_fragment_label">
 
