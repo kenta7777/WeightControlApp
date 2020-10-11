@@ -15,6 +15,8 @@
     <string name="check_weight_record_fragment_label">Check Weight Record Fragment</string>
     <string name="back_to_weight_record_screen">Back to weight record screen</string>
     <string name="history_fragment_label">History Fragment</string>
+    <string name="navigation_drawer_open">Navigation Drawer Open</string>
+    <string name="navigation_drawer_close">Navigation Drawer Close</string>
 
     <!-- Strings for WeightRecordFragment -->
     <string name="record_your_weight">Let\'s record \n today\'s your weight!</string>
