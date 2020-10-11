@@ -23,10 +23,22 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setActionBar()
+        setDrawerLayout()
 
+        db = Room.databaseBuilder(
+            applicationContext,
+            AppDatabase::class.java,
+            "app_database"
+        ).fallbackToDestructiveMigration().build()
+    }
+
+    private fun setActionBar() {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowHomeEnabled(false)
+    }
 
+    private fun setDrawerLayout() {
         val toggle = ActionBarDrawerToggle(
             Activity(), drawer_layout, toolbar,
             R.string.navigation_drawer_open, R.string.navigation_drawer_close
@@ -34,12 +46,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
         navigation_view.setNavigationItemSelectedListener(this)
-
-        db = Room.databaseBuilder(
-            applicationContext,
-            AppDatabase::class.java,
-            "app_database"
-        ).fallbackToDestructiveMigration().build()
     }
 
     override fun onBackPressed() {
