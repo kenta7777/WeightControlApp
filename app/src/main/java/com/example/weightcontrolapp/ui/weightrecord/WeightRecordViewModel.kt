@@ -15,7 +15,7 @@ class WeightRecordViewModel : ViewModel() {
 
     private val dao = MainActivity.db.weightDataDao()
 
-    //TODO: use when implement history screen
+    // use when implement history screen
     fun loadAllWeightDataList(): List<WeightData> {
         var weightDataList = listOf<WeightData>()
         CoroutineScope(Dispatchers.Main).launch {
@@ -26,7 +26,7 @@ class WeightRecordViewModel : ViewModel() {
         return weightDataList
     }
 
-    //TODO: use when implement history screen
+    // use when implement history screen
     fun findWeightDataById(id: Int): WeightData {
         lateinit var weightData: WeightData
         CoroutineScope(Dispatchers.Main).launch {
