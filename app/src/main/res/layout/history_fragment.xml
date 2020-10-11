@@ -10,7 +10,7 @@
         android:background="@color/cardview_dark_background"
         android:gravity="center"
         android:text="@string/history_fragment_title"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
