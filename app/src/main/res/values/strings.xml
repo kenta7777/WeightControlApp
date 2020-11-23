@@ -15,6 +15,7 @@
     <string name="check_weight_record_fragment_label">Check Weight Record Fragment</string>
     <string name="back_to_weight_record_screen">Back to weight record screen</string>
     <string name="history_fragment_label">History Fragment</string>
+    <string name="mypage_fragment_label">MyPage Fragment</string>
     <string name="navigation_drawer_open">Navigation Drawer Open</string>
     <string name="navigation_drawer_close">Navigation Drawer Close</string>
 
@@ -25,6 +26,9 @@
 
     <!-- String for CheckWeightRecordFragment -->
     <string name="record_weight_message">Today\'s your weight is \n %1$s kg!</string>
+
+    <!-- String for MyPageFragment -->
+    <string name="mypage_sample_description">This fragment is MyPage!</string>
 
     <!-- HistoryFragment -->
     <string name="history_fragment_title">History</string>

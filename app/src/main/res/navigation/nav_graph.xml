@@ -3,38 +3,44 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/menu_nav_weight_record">
+    app:startDestination="@id/navWeightRecordFragment">
 
     <fragment
-        android:id="@+id/menu_nav_weight_record"
+        android:id="@+id/navWeightRecordFragment"
         android:name="com.example.weightcontrolapp.ui.weightrecord.WeightRecordFragment"
         android:label="@string/weight_record_fragment_label"
         tools:layout="@layout/weight_record_fragment">
 
         <action
             android:id="@+id/action_WeightRecordFragment_to_CheckWeightRecordFragment"
-            app:destination="@id/CheckWeightRecordFragment" />
+            app:destination="@id/navCheckWeightRecordFragment" />
         <action
             android:id="@+id/action_WeightRecordFragment_to_HistoryFragment"
-            app:destination="@id/menu_nav_history"
-            />
+            app:destination="@id/navHistoryFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/CheckWeightRecordFragment"
+        android:id="@+id/navCheckWeightRecordFragment"
         android:name="com.example.weightcontrolapp.ui.weightrecord.CheckWeightRecordFragment"
         android:label="@string/check_weight_record_fragment_label"
         tools:layout="@layout/check_weight_record_fragment">
 
         <action
             android:id="@+id/action_CheckWeightRecordFragment_to_WeightRecordFragment"
-            app:destination="@id/menu_nav_weight_record" />
+            app:destination="@id/navWeightRecordFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/menu_nav_history"
+        android:id="@+id/navHistoryFragment"
         android:name="com.example.weightcontrolapp.ui.history.HistoryFragment"
         android:label="@string/history_fragment_label">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navMyPageFragment"
+        android:name="com.example.weightcontrolapp.ui.mypage.MyPageFragment"
+        android:label="@string/mypage_fragment_label">
 
     </fragment>
 </navigation>
