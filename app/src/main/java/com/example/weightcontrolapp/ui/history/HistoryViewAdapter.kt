@@ -9,7 +9,8 @@ import com.example.weightcontrolapp.R
 import com.example.weightcontrolapp.data.model.db.WeightData
 import timber.log.Timber
 
-class HistoryViewAdapter(private val list: List<WeightData>) : RecyclerView.Adapter<HistoryViewHolder>() {
+class HistoryViewAdapter(private val list: List<WeightData>) :
+    RecyclerView.Adapter<HistoryViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoryViewHolder {
         Timber.d("onCreateViewHolder")
@@ -31,5 +32,4 @@ class HistoryViewAdapter(private val list: List<WeightData>) : RecyclerView.Adap
         Timber.d("getItemCount")
         return list.size
     }
-
 }
