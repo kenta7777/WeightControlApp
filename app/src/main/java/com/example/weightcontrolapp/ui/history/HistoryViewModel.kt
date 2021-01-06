@@ -12,13 +12,14 @@ class HistoryViewModel : ViewModel() {
 
     private val dao = MainActivity.db.weightDataDao()
 
-    fun loadAllWeightDataList(): List<WeightData> {
-        var weightDataList = listOf<WeightData>()
+    var weightDataList = listOf<WeightData>()
+
+    // have a bug of not getting weight data from db
+    fun loadAllWeightDataList() {
         CoroutineScope(Dispatchers.Main).launch {
             withContext(Dispatchers.Default) {
                 weightDataList = dao.loadAllWeightData()
             }
         }
-        return weightDataList
     }
 }

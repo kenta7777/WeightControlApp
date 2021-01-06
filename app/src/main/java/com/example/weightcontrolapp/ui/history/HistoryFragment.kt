@@ -36,9 +36,9 @@ class HistoryFragment : Fragment() {
         recyclerView = recycler_view as RecyclerView
 
         // load WeightData from db
-        val weightDataList = viewModel.loadAllWeightDataList()
+        viewModel.loadAllWeightDataList()
 
-        val adapter = HistoryViewAdapter(weightDataList)
+        val adapter = HistoryViewAdapter(viewModel.weightDataList)
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(activity)
         // set adapter
