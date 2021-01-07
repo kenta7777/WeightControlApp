@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.weightcontrolapp.R
 import com.example.weightcontrolapp.data.model.db.WeightData
 import timber.log.Timber
+import java.text.SimpleDateFormat
 
 class HistoryViewAdapter(private val list: List<WeightData>) :
     RecyclerView.Adapter<HistoryViewHolder>() {
@@ -23,8 +24,10 @@ class HistoryViewAdapter(private val list: List<WeightData>) :
 
     override fun onBindViewHolder(holder: HistoryViewHolder, position: Int) {
         Timber.d("onBindViewHolder")
+        val format = SimpleDateFormat("yyyy/mm/dd")
+
         holder.idView.text = list[position].id.toString()
-        holder.dateView.text = list[position].date.toString()
+        holder.dateView.text = format.format(list[position].date)
         holder.weightView.text = list[position].weight
     }
 
