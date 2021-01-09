@@ -14,7 +14,6 @@ class HistoryViewModel : ViewModel() {
 
     var weightDataList = listOf<WeightData>()
 
-    // have a bug of not getting weight data from db
     fun loadAllWeightDataList() {
         CoroutineScope(Dispatchers.Main).launch {
             withContext(Dispatchers.Default) {

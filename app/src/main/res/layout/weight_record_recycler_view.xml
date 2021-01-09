@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- A RecyclerView with some commonly used attributes -->
 <androidx.recyclerview.widget.RecyclerView
     android:id="@+id/weight_record_recycler_view"
     android:scrollbars="vertical"
