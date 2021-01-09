@@ -7,6 +7,6 @@ import java.util.Date
 @Entity(tableName = "weight_data")
 data class WeightData (
     @PrimaryKey(autoGenerate = true) val id: Int,
-    val data: Date,
+    val date: Date,
     val weight: String
 )

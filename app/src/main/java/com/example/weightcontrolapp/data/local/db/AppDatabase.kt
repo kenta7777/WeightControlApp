@@ -7,7 +7,7 @@ import com.example.weightcontrolapp.data.DateConverters
 import com.example.weightcontrolapp.data.local.db.dao.WeightDataDao
 import com.example.weightcontrolapp.data.model.db.WeightData
 
-@Database(entities = [WeightData::class], version = 2)
+@Database(entities = [WeightData::class], version = 3)
 @TypeConverters(DateConverters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun weightDataDao(): WeightDataDao
