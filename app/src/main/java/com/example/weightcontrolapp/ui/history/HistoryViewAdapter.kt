@@ -24,10 +24,10 @@ class HistoryViewAdapter(private val list: List<WeightData>) :
 
     override fun onBindViewHolder(holder: HistoryViewHolder, position: Int) {
         Timber.d("onBindViewHolder")
-        val format = SimpleDateFormat("yyyy/mm/dd")
+        val df = SimpleDateFormat("yyyy/MM/dd")
 
         holder.idView.text = list[position].id.toString()
-        holder.dateView.text = format.format(list[position].date)
+        holder.dateView.text = df.format(list[position].date)
         holder.weightView.text = list[position].weight
     }
 
