@@ -9,10 +9,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weightcontrolapp.R
-import com.example.weightcontrolapp.data.model.db.WeightData
 import kotlinx.android.synthetic.main.history_fragment.*
-import kotlinx.android.synthetic.main.weight_record_recycler_view.*
-import kotlinx.android.synthetic.main.weight_record_recycler_view.weight_record_recycler_view
 
 class HistoryFragment : Fragment() {
 
@@ -38,10 +35,13 @@ class HistoryFragment : Fragment() {
         // load WeightData from db
         viewModel.loadAllWeightDataList()
 
-        val adapter = HistoryViewAdapter(viewModel.weightDataList)
-        recyclerView.setHasFixedSize(true)
-        recyclerView.layoutManager = LinearLayoutManager(activity)
-        // set adapter
-        recyclerView.adapter = adapter
+        val viewAdapter = HistoryViewAdapter(viewModel.weightDataList)
+
+        recyclerView.let {
+            it.setHasFixedSize(true)
+            it.layoutManager = LinearLayoutManager(activity)
+            // set adapter
+            it.adapter = viewAdapter
+        }
     }
 }
