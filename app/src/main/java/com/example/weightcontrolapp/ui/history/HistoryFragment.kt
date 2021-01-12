@@ -42,6 +42,7 @@ class HistoryFragment : Fragment() {
             it.layoutManager = LinearLayoutManager(activity)
             // set adapter
             it.adapter = viewAdapter
+            it.adapter?.notifyDataSetChanged()
         }
     }
 }
