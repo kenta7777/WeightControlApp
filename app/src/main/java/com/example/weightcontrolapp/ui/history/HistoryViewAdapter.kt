@@ -4,8 +4,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weightcontrolapp.R
+import com.example.weightcontrolapp.common.RecyclerDiffCallback
 import com.example.weightcontrolapp.data.model.db.WeightData
 import timber.log.Timber
 import java.text.SimpleDateFormat
@@ -34,5 +36,10 @@ class HistoryViewAdapter(private val list: List<WeightData>) :
     override fun getItemCount(): Int {
         Timber.d("getItemCount")
         return list.size
+    }
+
+    fun update(newList: List<WeightData>) {
+        val diffResult = DiffUtil.calculateDiff(RecyclerDiffCallback(list, newList))
+        diffResult.dispatchUpdatesTo(this)
     }
 }
