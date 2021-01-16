@@ -6,18 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weightcontrolapp.R
-import com.example.weightcontrolapp.data.model.db.WeightData
+import com.example.weightcontrolapp.ui.weightrecord.WeightRecordViewModel
 import kotlinx.android.synthetic.main.history_fragment.*
-import kotlinx.android.synthetic.main.weight_record_recycler_view.*
-import kotlinx.android.synthetic.main.weight_record_recycler_view.weight_record_recycler_view
 
 class HistoryFragment : Fragment() {
 
-    private val viewModel: HistoryViewModel by activityViewModels()
+    private val historyViewModel: HistoryViewModel by activityViewModels()
+
     private lateinit var recyclerView: RecyclerView
+    private lateinit var viewAdapter: HistoryViewAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,12 +37,16 @@ class HistoryFragment : Fragment() {
         recyclerView = recycler_view as RecyclerView
 
         // load WeightData from db
-        viewModel.loadAllWeightDataList()
+        historyViewModel.loadAllWeightDataList()
 
-        val adapter = HistoryViewAdapter(viewModel.weightDataList)
-        recyclerView.setHasFixedSize(true)
-        recyclerView.layoutManager = LinearLayoutManager(activity)
-        // set adapter
-        recyclerView.adapter = adapter
+        viewAdapter = HistoryViewAdapter(historyViewModel.weightDataList)
+
+        recyclerView.let {
+            it.setHasFixedSize(true)
+            it.layoutManager = LinearLayoutManager(activity)
+            // set adapter
+            it.adapter = viewAdapter
+            it.adapter?.notifyDataSetChanged()
+        }
     }
 }

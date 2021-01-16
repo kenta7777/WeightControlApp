@@ -15,7 +15,7 @@ class HistoryViewModel : ViewModel() {
     var weightDataList = listOf<WeightData>()
 
     fun loadAllWeightDataList() {
-        CoroutineScope(Dispatchers.Main).launch {
+        CoroutineScope(Dispatchers.IO).launch {
             withContext(Dispatchers.Default) {
                 weightDataList = dao.loadAllWeightData()
             }
