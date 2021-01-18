@@ -7,10 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weightcontrolapp.R
 import com.example.weightcontrolapp.ui.weightrecord.WeightRecordViewModel
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.history_fragment.*
 
 class HistoryFragment : Fragment() {
@@ -47,6 +49,11 @@ class HistoryFragment : Fragment() {
             // set adapter
             it.adapter = viewAdapter
             it.adapter?.notifyDataSetChanged()
+        }
+
+        val fab: View = fab
+        fab.setOnClickListener {
+            findNavController().navigate(R.id.action_HistoryFragment_to_HistoryGraphFragment)
         }
     }
 }

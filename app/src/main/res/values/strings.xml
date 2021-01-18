@@ -15,6 +15,7 @@
     <string name="check_weight_record_fragment_label">Check Weight Record Fragment</string>
     <string name="back_to_weight_record_screen">Back to weight record screen</string>
     <string name="history_fragment_label">History Fragment</string>
+    <string name="history_graph_fragment_label">History Graph Fragment</string>
     <string name="mypage_fragment_label">MyPage Fragment</string>
     <string name="navigation_drawer_open">Navigation Drawer Open</string>
     <string name="navigation_drawer_close">Navigation Drawer Close</string>
@@ -32,4 +33,7 @@
 
     <!-- HistoryFragment -->
     <string name="history_fragment_title">History</string>
+
+    <!--HistoryGraphFragment -->
+    <string name="history_graph_sample_description">This fragment is HistoryGraph!</string>
 </resources>
