@@ -35,7 +35,19 @@
         android:name="com.example.weightcontrolapp.ui.history.HistoryFragment"
         android:label="@string/history_fragment_label">
 
+        <action
+            android:id="@+id/action_HistoryFragment_to_HistoryGraphFragment"
+            app:destination="@id/navHistoryGraphFragment" />
+
     </fragment>
+
+    <fragment
+        android:id="@+id/navHistoryGraphFragment"
+        android:name="com.example.weightcontrolapp.ui.history.HistoryGraphFragment"
+        android:label="@string/history_graph_fragment_label">
+
+    </fragment>
+
 
     <fragment
         android:id="@+id/navMyPageFragment"
