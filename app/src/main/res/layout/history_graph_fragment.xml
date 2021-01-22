@@ -10,7 +10,7 @@
         android:text="@string/history_graph_sample_description" />
 
     <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/weightDataLineChart"
+        android:id="@+id/weight_data_line_chart"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
