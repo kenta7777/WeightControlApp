@@ -4,11 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/history_graph_sample_description" />
-
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/weight_data_line_chart"
         android:layout_width="match_parent"

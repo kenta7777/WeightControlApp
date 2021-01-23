@@ -22,9 +22,14 @@ class HistoryGraphFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
-        createLineGraph()
 
         return inflater.inflate(R.layout.history_graph_fragment, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        createLineGraph()
     }
 
     private fun createLineGraph() {
@@ -35,7 +40,7 @@ class HistoryGraphFragment : Fragment() {
         val xAxisDataList = listOf<Float>(n1, n2)
         val yAxisDataList = xAxisDataList.map { it*it }
 
-        // create Entry
+        // create `Entry`
         val entryList = mutableListOf<Entry>()
 
         xAxisDataList.forEachIndexed { index, _ ->
@@ -44,23 +49,25 @@ class HistoryGraphFragment : Fragment() {
             )
         }
 
-        // DataSet holds entry
+        // set Entry to `dataset`
         val lineDataSets = mutableListOf<ILineDataSet>()
         val lineDataSet = LineDataSet(entryList, "square")
         lineDataSets.add(lineDataSet)
 
-        // Data holds DataSet
+        // set dataset to `data`
         val lineData = LineData(lineDataSets)
 
-        // Chart holds Data
+        // set data to `chart`
         val lineChart = view?.findViewById<LineChart>(R.id.weight_data_line_chart)
         lineChart?.data = lineData
 
+        // specify line chart format
         lineChart?.xAxis?.apply {
             isEnabled = true
             textColor = Color.BLACK
         }
 
+        // update chart
         lineChart?.invalidate()
     }
 }
