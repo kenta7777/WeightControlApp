@@ -1,6 +1,7 @@
 package com.example.weightcontrolapp.ui.history
 
 import android.os.Bundle
+import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.weightcontrolapp.R
 import com.example.weightcontrolapp.ui.weightrecord.WeightRecordViewModel
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.parcel.Parcelize
 import kotlinx.android.synthetic.main.history_fragment.*
 import kotlinx.android.synthetic.main.history_graph_fragment.*
 
@@ -53,7 +55,18 @@ class HistoryFragment : Fragment() {
         }
 
         fab_to_history_graph.setOnClickListener {
+            // create list for instantiating WeightParcelableList
+            val list = mutableListOf<String>()
+            historyViewModel.weightDataList.forEach {
+                list.add(it.weight)
+            }
+
+            // use safe args for passing weight strings
+
             findNavController().navigate(R.id.action_HistoryFragment_to_HistoryGraphFragment)
         }
     }
 }
+
+@Parcelize
+class WeightParcelableList(private val list: List<String>) : ArrayList<String>(list), Parcelable
