@@ -14,6 +14,7 @@ import com.example.weightcontrolapp.R
 import com.example.weightcontrolapp.ui.weightrecord.WeightRecordViewModel
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.history_fragment.*
+import kotlinx.android.synthetic.main.history_graph_fragment.*
 
 class HistoryFragment : Fragment() {
 
@@ -51,8 +52,7 @@ class HistoryFragment : Fragment() {
             it.adapter?.notifyDataSetChanged()
         }
 
-        val fab: View = fab
-        fab.setOnClickListener {
+        fab_to_history_graph.setOnClickListener {
             findNavController().navigate(R.id.action_HistoryFragment_to_HistoryGraphFragment)
         }
     }
