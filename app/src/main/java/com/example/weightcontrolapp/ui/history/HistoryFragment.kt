@@ -36,7 +36,7 @@ class HistoryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // set up RecyclerView
+        // set up recycler view
         recyclerView = recycler_view as RecyclerView
 
         // load WeightData from db

@@ -52,7 +52,6 @@
 
     </fragment>
 
-
     <fragment
         android:id="@+id/navMyPageFragment"
         android:name="com.example.weightcontrolapp.ui.mypage.MyPageFragment"

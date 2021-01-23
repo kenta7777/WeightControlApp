@@ -46,7 +46,7 @@ class HistoryGraphFragment : Fragment() {
         val xAxisDataList = listOf<Float>(n1, n2)
         val yAxisDataList = xAxisDataList.map { it*it }
 
-        // create `Entry`
+        // create `entry`
         val entryList = mutableListOf<Entry>()
 
         xAxisDataList.forEachIndexed { index, _ ->
@@ -55,7 +55,7 @@ class HistoryGraphFragment : Fragment() {
             )
         }
 
-        // set Entry to `dataset`
+        // set entry to `dataset`
         val lineDataSets = mutableListOf<ILineDataSet>()
         val lineDataSet = LineDataSet(entryList, "square")
         lineDataSets.add(lineDataSet)
