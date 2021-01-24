@@ -5,6 +5,7 @@ import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
@@ -62,7 +63,11 @@ class HistoryFragment : Fragment() {
             }
 
             // use safe args for passing weight strings
+            //HistoryFragmentArgs.Builder(WeightParcelableList(list)).build()
+            //val bundle = bundleOf("list" to WeightParcelableList(list))
 
+//            findNavController()
+//                .navigate(HistoryFragmentDirections.actionToHistoryGraph{weightParcelableList=list})
             findNavController().navigate(R.id.action_HistoryFragment_to_HistoryGraphFragment)
         }
     }
