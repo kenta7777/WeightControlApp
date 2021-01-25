@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weightcontrolapp.R
+import com.example.weightcontrolapp.common.WeightParcelableList
 import com.example.weightcontrolapp.ui.weightrecord.WeightRecordViewModel
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.parcel.Parcelize
@@ -62,16 +63,10 @@ class HistoryFragment : Fragment() {
                 list.add(it.weight)
             }
 
-            // use safe args for passing weight strings
-            //HistoryFragmentArgs.Builder(WeightParcelableList(list)).build()
-            //val bundle = bundleOf("list" to WeightParcelableList(list))
-
-//            findNavController()
-//                .navigate(HistoryFragmentDirections.actionToHistoryGraph{weightParcelableList=list})
-            findNavController().navigate(R.id.action_HistoryFragment_to_HistoryGraphFragment)
+            val parcelableList = WeightParcelableList(list)
+            val action =
+                HistoryFragmentDirections.actionHistoryFragmentToHistoryGraphFragment(parcelableList)
+            findNavController().navigate(action)
         }
     }
 }
-
-@Parcelize
-class WeightParcelableList(private val list: List<String>) : ArrayList<String>(list), Parcelable

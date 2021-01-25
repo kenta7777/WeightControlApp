@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.weightcontrolapp.R
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.data.Entry
@@ -17,6 +18,8 @@ import kotlinx.android.synthetic.main.history_fragment.*
 import kotlinx.android.synthetic.main.history_graph_fragment.*
 
 class HistoryGraphFragment : Fragment() {
+
+    private val args: HistoryGraphFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,6 +37,8 @@ class HistoryGraphFragment : Fragment() {
         fab_to_history.setOnClickListener {
             findNavController().navigate(R.id.action_HistoryGraphFragment_to_HistoryFragment)
         }
+
+        val weightParcelableList = args.weightParcelableList
 
         createLineGraph()
     }
