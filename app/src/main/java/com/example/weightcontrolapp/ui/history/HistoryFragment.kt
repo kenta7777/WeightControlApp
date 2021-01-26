@@ -1,9 +1,11 @@
 package com.example.weightcontrolapp.ui.history
 
 import android.os.Bundle
+import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
@@ -11,9 +13,12 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.weightcontrolapp.R
+import com.example.weightcontrolapp.common.WeightParcelableList
 import com.example.weightcontrolapp.ui.weightrecord.WeightRecordViewModel
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.parcel.Parcelize
 import kotlinx.android.synthetic.main.history_fragment.*
+import kotlinx.android.synthetic.main.history_graph_fragment.*
 
 class HistoryFragment : Fragment() {
 
@@ -35,7 +40,7 @@ class HistoryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // set up RecyclerView
+        // set up recycler view
         recyclerView = recycler_view as RecyclerView
 
         // load WeightData from db
@@ -51,9 +56,17 @@ class HistoryFragment : Fragment() {
             it.adapter?.notifyDataSetChanged()
         }
 
-        val fab: View = fab
-        fab.setOnClickListener {
-            findNavController().navigate(R.id.action_HistoryFragment_to_HistoryGraphFragment)
+        fab_to_history_graph.setOnClickListener {
+            // create list for instantiating WeightParcelableList
+            val list = mutableListOf<String>()
+            historyViewModel.weightDataList.forEach {
+                list.add(it.weight)
+            }
+
+            val parcelableList = WeightParcelableList(list)
+            val action =
+                HistoryFragmentDirections.actionHistoryFragmentToHistoryGraphFragment(parcelableList)
+            findNavController().navigate(action)
         }
     }
 }

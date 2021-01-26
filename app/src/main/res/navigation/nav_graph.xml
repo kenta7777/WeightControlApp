@@ -39,6 +39,10 @@
             android:id="@+id/action_HistoryFragment_to_HistoryGraphFragment"
             app:destination="@id/navHistoryGraphFragment" />
 
+        <argument
+            android:name="weightParcelableList"
+            app:argType="com.example.weightcontrolapp.common.WeightParcelableList" />
+
     </fragment>
 
     <fragment
@@ -46,8 +50,15 @@
         android:name="com.example.weightcontrolapp.ui.history.HistoryGraphFragment"
         android:label="@string/history_graph_fragment_label">
 
-    </fragment>
+        <action
+            android:id="@+id/action_HistoryGraphFragment_to_HistoryFragment"
+            app:destination="@id/navHistoryFragment" />
 
+        <argument
+            android:name="weightParcelableList"
+            app:argType="com.example.weightcontrolapp.common.WeightParcelableList" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/navMyPageFragment"
