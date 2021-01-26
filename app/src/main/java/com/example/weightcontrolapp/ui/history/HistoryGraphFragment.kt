@@ -38,43 +38,46 @@ class HistoryGraphFragment : Fragment() {
             findNavController().navigate(R.id.action_HistoryGraphFragment_to_HistoryFragment)
         }
 
-        val weightParcelableList = args.weightParcelableList
-
-        createLineGraph(weightParcelableList)
+        createLineGraph(args.weightParcelableList)
     }
 
     private fun createLineGraph(list: WeightParcelableList) {
-        // create data for showing graph
+        // create the data for x axis
         val xAxisDataList = mutableListOf<Float>()
+        val origin = 1
 
-        listOf(1..list.size).forEach {
-            it.forEach {
+        listOf(origin..list.size).forEach { intRange ->
+            intRange.forEach {
                 xAxisDataList.add(it.toFloat())
             }
         }
 
+        // create the data for y axis
         val yAxisDataList = list.map {
             it.toFloat()
         }
 
         // create `entry`
+        // entry: the data per one drawing point
         val entryList = mutableListOf<Entry>()
-
         xAxisDataList.forEachIndexed { index, _ ->
             entryList.add(
                 Entry(xAxisDataList[index], yAxisDataList[index])
             )
         }
 
-        // set entry to `dataset`
+        // set entry list to `dataset`
+        // dataset: the set of entry
         val lineDataSets = mutableListOf<ILineDataSet>()
         val lineDataSet = LineDataSet(entryList, "square")
         lineDataSets.add(lineDataSet)
 
         // set dataset to `data`
+        // data: overall data of graph
         val lineData = LineData(lineDataSets)
 
         // set data to `chart`
+        // chart: data and UI format of graph
         val lineChart = view?.findViewById<LineChart>(R.id.weight_data_line_chart)
         lineChart?.data = lineData
 
