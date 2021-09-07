@@ -23,4 +23,8 @@ class WeightRecordViewModel : ViewModel() {
             }
         }
     }
+
+    fun setWeight(weightString: String) {
+        userWeightText.value = weightString
+    }
 }

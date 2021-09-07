@@ -62,12 +62,8 @@ class WeightRecordFragment : Fragment() {
 
         override fun afterTextChanged(s: Editable?) {
             val weightRecordString = s.toString()
-            setWeight(weightRecordString)
+            viewModel.setWeight(weightRecordString)
         }
-    }
-
-    fun setWeight(weightString: String) {
-        viewModel.userWeightText.value = weightString
     }
 
     private fun createWeightData(): WeightData {
